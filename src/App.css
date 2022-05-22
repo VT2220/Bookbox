@@ -1,0 +1,124 @@
+.title,
+h1 {
+  font-family: 'Dela Gothic One', cursive;
+}
+
+.default-border {
+  @apply border-2 border-black;
+}
+
+.book-container {
+  opacity: 1;
+  transition: ease-in 0.5s;
+}
+
+.book {
+  border-radius: 0.5rem;
+  border: 2px solid;
+}
+
+.book:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  bottom: 0;
+  width: 3px;
+  background: #0000001a;
+  box-shadow: 1px 0 3px #ffffff1a;
+}
+
+/* 3d book  */
+.book-3d {
+  position: relative;
+  transform: rotateY(-30deg);
+  transform-style: preserve-3d;
+  transition: 1s ease-in-out;
+  margin-left: -5px;
+}
+
+.book-3d:hover {
+  transform: rotateY(0deg);
+}
+
+.book-3d-shadow {
+  transform: rotateX(45deg) skewX(330deg) translate3d(-11px, -291px, -51px);
+  box-shadow: 15px 220px 20px 20px rgb(0 0 0 / 10%);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 19px;
+  width: 211px;
+}
+
+.book-3d img {
+  width: 268px;
+  height: 400px;
+  transform: translateZ(25px);
+  background-color: #01060f;
+  border-radius: 0 2px 2px 0;
+  object-fit: cover;
+}
+
+.book-3d::before {
+  position: absolute;
+  content: ' ';
+  left: 0;
+  top: 3px;
+  width: 48px;
+  height: 394px;
+  transform: translateX(240px) rotateY(90deg);
+  background: white;
+}
+
+.book-3d::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: ' ';
+  width: 268px;
+  height: 400px;
+  transform: translateZ(-25px);
+  background-color: #01060f;
+  border-radius: 0 2px 2px 0;
+}
+
+@media screen and (max-width: 992px) {
+  .book-3d img {
+    width: 200px;
+    height: 300px;
+  }
+  .book-3d-shadow {
+    height: 0px;
+    width: 130px;
+  }
+  .book-3d::before {
+    width: 45px;
+    height: 295px;
+    transform: translateX(175px) rotateY(90deg);
+  }
+  .book-3d::after {
+    width: 200px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .book-3d img {
+    width: 140px;
+    height: 211px;
+  }
+  .book-3d-shadow {
+    height: 0px;
+    width: 50px;
+  }
+  .book-3d::before {
+    width: 35px;
+    height: 204px;
+    transform: translateX(118px) rotateY(90deg);
+  }
+  .book-3d::after {
+    width: 135px;
+    height: 210px;
+  }
+}
