@@ -11,7 +11,7 @@ function* handleGetBooks() {
     const { data } = yield call(getBooksApi);
     yield put(setBooks(data));
   } catch (error) {
-    console.log(error);
+    //
   }
 }
 
