@@ -8,7 +8,7 @@ const Home = () => {
   const books = useTypedSelector((state) => state.books.books);
   const dispatch = useDispatch();
 
-  const [noOfBooks, setNoOfBooks] = useState(20);
+  const [noOfBooks, setNoOfBooks] = useState(8);
 
   useEffect(() => {
     dispatch(getBooks());
@@ -24,13 +24,15 @@ const Home = () => {
         ))}
       </div>
       <div className="mt-5 flex justify-center">
-        <button
-          type="button"
-          className="btn btn-ghost"
-          onClick={() => setNoOfBooks((no) => no * 2)}
-        >
-          Load more
-        </button>
+        {books.length > noOfBooks && (
+          <button
+            type="button"
+            className="btn btn-ghost"
+            onClick={() => setNoOfBooks((no) => no * 2)}
+          >
+            Load more
+          </button>
+        )}
       </div>
     </div>
   );
